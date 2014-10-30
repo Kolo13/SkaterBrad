@@ -75,7 +75,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         
         // City Background [Tina]
-        
         for var index = 0; index < 2; ++index {
             let bg = SKSpriteNode(imageNamed: "bg\(index).jpg")
             bg.anchorPoint = CGPointZero
@@ -167,7 +166,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
         })
         
-        // Moving Obstacles [Brian/Kori, updated by Kevin]
+        // Moving Obstacles [Brian/Kori, updated by Kevin/Tina/Vincent]
         self.enumerateChildNodesWithName("vertical", usingBlock: { (node, stop) -> Void in
             if let vertical = node as SKNode? {
                 vertical.position = CGPoint(x: vertical.position.x-self.roadSpeed, y: vertical.position.y)
@@ -176,6 +175,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             }
         })
+        
         self.currentTime = currentTime
         self.deltaTime = self.currentTime - self.previousTime
         self.previousTime = currentTime
@@ -375,7 +375,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         craneScoreContact.physicsBody?.contactTestBitMask = UInt32(self.heroCategory) | UInt32(self.scoreCategory)
         craneScoreContact.physicsBody?.node?.name = "benchScoreContact"
         vertical.addChild(craneScoreContact)
-        
     }
     
     // MARK: - Menu Screens
